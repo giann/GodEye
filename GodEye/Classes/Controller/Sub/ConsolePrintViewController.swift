@@ -36,8 +36,8 @@ class ConsolePrintViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .trash,
                                                                    target: self,
                                                                    action: #selector(ConsolePrintViewController.handleDeleteButtonTap)),UIBarButtonItem(barButtonSystemItem: .action,
-                                                                   target: self,
-                                                                   action: #selector(ConsolePrintViewController.handleSharedButtonTap))]
+                                                                                                                                                        target: self,
+                                                                                                                                                        action: #selector(ConsolePrintViewController.handleSharedButtonTap))]
         
         self.view.addSubview(self.recordTableView)
         self.view.addSubview(self.inputField)
@@ -84,7 +84,7 @@ class ConsolePrintViewController: UIViewController {
             
             self.recordTableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.inputField.frame.minY)
         }else {
-           self.recordTableView.frame = rect
+            self.recordTableView.frame = rect
             self.inputField.frame = CGRect.zero
         }
     }
@@ -103,7 +103,7 @@ class ConsolePrintViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
-
+        
     }
     
     func addRecord(model:RecordORMProtocol) {
@@ -116,16 +116,17 @@ class ConsolePrintViewController: UIViewController {
     }
     
     @objc private func handleSharedButtonTap() {
-        
-        let image = self.recordTableView.swContentCapture { [unowned self] (image:UIImage?) in
-            
-            let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-            if let popover = activity.popoverPresentationController {
-                popover.sourceView = self.view
-                popover.permittedArrowDirections = .up
-            }
-            self.present(activity, animated: true, completion: nil)
+        var fullLog = ""
+        for record in dataSource.recordData {
+            fullLog += "\n\(record.attributeString().string)"
         }
+        
+        let activity = UIActivityViewController(activityItems: [fullLog], applicationActivities: nil)
+        if let popover = activity.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.permittedArrowDirections = .up
+        }
+        self.present(activity, animated: true, completion: nil)
     }
     
     @objc private func handleDeleteButtonTap() {
@@ -140,7 +141,7 @@ class ConsolePrintViewController: UIViewController {
         new.delegate = self.dataSource
         new.dataSource = self.dataSource
         return new
-    }()
+        }()
     
     private lazy var inputField: UITextField = { [unowned self] in
         let new = UITextField(frame: CGRect.zero)
@@ -156,7 +157,7 @@ class ConsolePrintViewController: UIViewController {
         new.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
         new.delegate = self
         return new
-    }()
+        }()
     
     private var dataSource: RecordTableViewDataSource!
     
