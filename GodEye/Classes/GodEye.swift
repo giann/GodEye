@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import AssistiveButton
 
 open class GodEye: NSObject {
     
-    open class func makeEye(with window:UIWindow, configuration: Configuration = Configuration()) {
+    open class func makeEye(with window:UIWindow, configuration: Configuration = Configuration()) -> AssistiveButton {
         LogRecordModel.create()
         CrashRecordModel.create()
         NetworkRecordModel.create()
@@ -18,6 +19,6 @@ open class GodEye: NSObject {
         CommandRecordModel.create()
         LeakRecordModel.create()
         
-        window.makeEye(with: configuration)
+        return window.makeEye(with: configuration)
     }
 }

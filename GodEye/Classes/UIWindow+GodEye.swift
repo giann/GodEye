@@ -21,7 +21,7 @@ extension UIWindow {
         }
     }
     
-    func makeEye(with configuration:Configuration) {
+    func makeEye(with configuration:Configuration) -> AssistiveButton {
         GodEyeController.shared.configuration = configuration
         
         var rect = CGRect(x: self.frame.size.width - 48, y: self.frame.size.height - 160, width: 48, height: 48)
@@ -57,6 +57,8 @@ extension UIWindow {
         orig = #selector(UIResponder.motionEnded(_:with:))
         alter = #selector(UIResponder.app_motionEnded(_:with:))
         UIResponder.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
+        
+        return btn
     }
     
     
