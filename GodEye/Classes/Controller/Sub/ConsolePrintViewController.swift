@@ -42,17 +42,17 @@ class ConsolePrintViewController: UIViewController {
         self.view.addSubview(self.recordTableView)
         self.view.addSubview(self.inputField)
         
-        self.recordTableView.es_addPullToRefresh { [weak self] in
-            guard let sself = self else {
-                return
-            }
-            
-            let result = sself.dataSource.loadPrePage()
-            if result == true {
-                sself.recordTableView.reloadData()
-            }
-            sself.recordTableView.es_stopPullToRefresh()
-        }
+//        self.recordTableView.es_addPullToRefresh { [weak self] in
+//            guard let sself = self else {
+//                return
+//            }
+//
+//            let result = sself.dataSource.loadPrePage()
+//            if result == true {
+//                sself.recordTableView.reloadData()
+//            }
+//            sself.recordTableView.es_stopPullToRefresh()
+//        }
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(ConsolePrintViewController.keyboardWillShow(noti:)),

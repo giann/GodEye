@@ -564,6 +564,7 @@
 					9EC3B5AA1E8CD2230052EC57 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = L35WZWVC98;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					9EC3B6611E8CD5C90052EC57 = {
@@ -881,7 +882,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zixun.GodEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -905,7 +907,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zixun.GodEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

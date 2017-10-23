@@ -9,9 +9,9 @@
 import Foundation
 
 /// FBFile is a class representing a file in FileBrowser
-open class FBFile: NSObject {
+@objc open class FBFile: NSObject {
     /// Display name. String.
-    open let displayName: String
+    @objc open let displayName: String
     // is Directory. Bool.
     open let isDirectory: Bool
     /// File extension.
@@ -22,6 +22,18 @@ open class FBFile: NSObject {
     open let filePath: URL
     // FBFileType
     open let type: FBFileType
+    
+    open func delete()
+    {
+        do
+        {
+            try FileManager.default.removeItem(at: self.filePath)
+        }
+        catch
+        {
+            print("An error occured when trying to delete file:\(self.filePath) Error:\(error)")
+        }
+    }
     
     /**
      Initialize an FBFile object with a filePath

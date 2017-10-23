@@ -1,5 +1,5 @@
-github "eggswift/pull-to-refresh" "2.6"
-github "marmelroy/FileBrowser" "0.2.0"
+github "eggswift/pull-to-refresh" "2.7"
+github "marmelroy/FileBrowser" "1.0.0"
 github "startry/SwViewCapture" "1.0.6"
 github "stephencelis/SQLite.swift" "0.11.4"
 github "zixun/ANREye" "1.1.2"
